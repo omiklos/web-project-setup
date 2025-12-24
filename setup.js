@@ -22,26 +22,25 @@ function setup(path, project){
     `)
   writeFileSync(`${path}/${project}/package.json`, 
     `{
-    "name": "empty",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "type": "module",
-    
-      "scripts": {
-        "build:backend": "tsc -p backend",
-        "build:frontend": "tsc -p frontend",
-        "build": "npm run build:backend && npm run build:frontend",
-        "start": "nodemon backend/dist/app.js" 
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-      "@types/node": "^25.0.3",
-      "nodemon": "^3.1.11",
-      "typescript": "^5.9.3"
-    }}
+      "name": "empty",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "type": "module",
+        "scripts": {
+          "build:backend": "tsc -p backend",
+          "build:frontend": "tsc -p backend/frontend",
+          "build": "npm run build:backend && npm run build:frontend",
+          "start": "nodemon backend/dist/app.js"
+        },
+      "keywords": [],
+      "author": "",
+      "license": "ISC",
+      "devDependencies": {
+        "@types/node": "^25.0.3",
+        "nodemon": "^3.1.11",
+        "typescript": "^5.9.3"
+      }}  
     `)
   writeFileSync(`${path}/${project}/.gitignore`, `node_modules/`)
   writeFileSync(`${path}/${project}/backend/src/app.ts`, ``)
