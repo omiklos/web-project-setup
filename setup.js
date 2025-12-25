@@ -40,6 +40,11 @@ function setup(path, project){
         "@types/node": "^25.0.3",
         "nodemon": "^3.1.11",
         "typescript": "^5.9.3"
+      },
+      "dependencies": {
+            "dotenv": "^17.2.3",
+            "express": "^5.2.1",
+            "mongoose": "^9.0.2"
       }}  
     `)
   writeFileSync(`${path}/${project}/.gitignore`, `node_modules/`)
@@ -187,3 +192,4 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
