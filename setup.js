@@ -4,7 +4,7 @@ function setup(path, project){
   mkdirSync(`${path}/${project}`, { recursive: true })
   mkdirSync(`${path}/${project}/java`, { recursive: true })
   mkdirSync(`${path}/${project}/backend`, { recursive: true })
-  mkdirSync(`${path}$/{project}/backend/public`, { recursive: true })
+  mkdirSync(`${path}/${project}/backend/public`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/dist`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/src`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend`, { recursive: true })
@@ -26,11 +26,12 @@ function setup(path, project){
       "main": "index.js",
       "type": "module",
         "scripts": {
-          "build:backend": "tsc -p backend",
-          "build:frontend": "tsc -p backend/frontend",
-          "build": "npm run build:backend && npm run build:frontend",
-          "start": "nodemon backend/dist/app.js"
-        },
+  "build:backend": "tsc -p backend",
+  "build:frontend": "tsc -p backend/frontend",
+  "build": "npm run build:backend && npm run build:frontend",
+  "start": "nodemon backend/dist/app.js",
+  "dev": "nodemon --watch backend/src --exec \"npm run build:backend && node backend/dist/app.js\""
+       },
       "keywords": [],
       "author": "",
       "license": "ISC",
@@ -45,7 +46,11 @@ function setup(path, project){
             "mongoose": "^9.0.2"
       }}  
     `)
-  writeFileSync(`${path}/${project}/.gitignore`, `node_modules/`)
+  writeFileSync(`${path}/${project}/.gitignore`, `
+    node_modules
+    dist
+    .env
+    `)
   writeFileSync(`${path}/${project}/backend/src/app.ts`, ``)
   writeFileSync(`${path}/${project}/backend/tsconfig.json`, `
     // BACKEND
@@ -151,6 +156,7 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
 
 
