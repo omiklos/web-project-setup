@@ -50,105 +50,66 @@ function setup(path, project){
   writeFileSync(`${path}/${project}/backend/tsconfig.json`, `
     // BACKEND
     {
-      // Visit https://aka.ms/tsconfig to read more about this file
-      "compilerOptions": {
-        // File Layout
-        "rootDir": "./src",
-        "outDir": "./dist",
-    
-        // Environment Settings
-        // See also https://aka.ms/tsconfig/module
-        "module": "nodenext",
-        "moduleResolution": "NodeNext",
-        "target": "es2020",
-        "types": [],
-        // For nodejs:
-        // "lib": ["esnext"],
-        // "types": ["node"],
-        // and npm install -D @types/node
-    
-        // Other Outputs
-        "sourceMap": true,
-        "declaration": true,
-        "declarationMap": true,
-    
-        // Stricter Typechecking Options
-        "noUncheckedIndexedAccess": true,
-        "exactOptionalPropertyTypes": true,
-    
-        // Style Options
-        "noImplicitReturns": true,
-        // "noImplicitOverride": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        // "noFallthroughCasesInSwitch": true,
-        // "noPropertyAccessFromIndexSignature": true,
-    
-        // Recommended Options
-        "strict": true,
-        "jsx": "react-jsx",
-        "verbatimModuleSyntax": true,
-        "isolatedModules": true,
-        "noUncheckedSideEffectImports": true,
-        "moduleDetection": "force",
-        "skipLibCheck": true,
-    
-        "noEmitOnError": true,
-        "removeComments": true,
-        "noImplicitAny": true
-      },
-      "include": ["src/**/*"]
-    }
-    `)
-  writeFileSync(`${path}/${project}/backend/frontend/tsconfig.json`, `
-    // FRONTEND
-{
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2020",
 
-    // Other Outputs
+    "lib": ["ES2020"],
+    "types": ["node"],
+
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
 
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
+    "strict": true,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
-    // "noImplicitOverride": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
 
-    // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
     "skipLibCheck": true,
 
     "noEmitOnError": true,
-    "removeComments": true,
-    "noImplicitAny": true
-  }
+    "removeComments": true
+  },
+  "include": ["src/**/*"]
+}
+    `)
+  writeFileSync(`${path}/${project}/backend/frontend/tsconfig.json`, `
+    // FRONTEND
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "target": "ES2020",
+    "module": "ESNext",
+
+    "lib": ["DOM", "ES2020"],
+
+    "jsx": "react-jsx",
+
+    "sourceMap": true,
+
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "isolatedModules": true,
+    "skipLibCheck": true,
+
+    "noEmitOnError": true,
+    "removeComments": true
+  },
+  "include": ["src/**/*"]
 }
     `)
   writeFileSync(`${path}/${project}/backend/frontend/css/style.css`, `
@@ -190,5 +151,6 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
 
